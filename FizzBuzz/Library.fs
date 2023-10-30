@@ -1,22 +1,23 @@
 ﻿namespace FizzBuzz
 
 
-type FizzBuzzType = 
+type FizzBuzzType =
     | Number of int
-    | Fizz 
-    | Buzz 
-    | FizzBuzz 
+    | Fizz
+    | Buzz
+    | FizzBuzz
 
-    
+
+
 
 
 module FizzBuzz =
-    let FizzBuzz number: FizzBuzzType = 
-        if number % 3 = 0 && number % 5 = 0 then FizzBuzz
-        elif number % 3 = 0 then Fizz
-        elif number % 5 = 0 then Buzz
+    let IsDivisibleBy div number = number % div = 0
+    let IsDivisibleByThree = IsDivisibleBy 3
+    let IsDivisibleByFive = IsDivisibleBy 5
+
+    let FizzBuzz number : FizzBuzzType =
+        if IsDivisibleByThree number && IsDivisibleByFive number then FizzBuzz
+        elif IsDivisibleByThree number then Fizz
+        elif IsDivisibleByFive number then Buzz
         else Number number
-
-
-
-
