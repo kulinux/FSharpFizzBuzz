@@ -18,15 +18,25 @@ public class FizzBuzzShould
     {
         FizzBuzzType res = FizzBuzz.FizzBuzz(input);
 
-        Assert.AreEqual(FizzBuzzType.NewString("Fizz"), res);
+        Assert.AreEqual(FizzBuzzType.Fizz, res);
     }
 
 
     [TestMethod]
-    public void ReturnsBuzzIfTheNumberIsFive()
+    [DataRow(5)]
+    [DataRow(10)]
+    public void ReturnsBuzzIfTheNumberIsMultipleOfFive(int input)
     {
-        FizzBuzzType res = FizzBuzz.FizzBuzz(5);
+        FizzBuzzType res = FizzBuzz.FizzBuzz(input);
 
-        Assert.AreEqual(FizzBuzzType.NewString("Buzz"), res);
+        Assert.AreEqual(FizzBuzzType.Buzz, res);
+    }
+
+    [TestMethod]
+    public void ReturnsFizzBuzzIfTheNumberIsMultipleOfThreeAndFive()
+    {
+        FizzBuzzType res = FizzBuzz.FizzBuzz(15);
+
+        Assert.AreEqual(FizzBuzzType.FizzBuzz, res);
     }
 }

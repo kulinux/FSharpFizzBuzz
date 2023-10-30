@@ -3,11 +3,20 @@
 
 type FizzBuzzType = 
     | Number of int
-    | String of string
+    | Fizz 
+    | Buzz 
+    | FizzBuzz 
+
+    
+
 
 module FizzBuzz =
     let FizzBuzz number: FizzBuzzType = 
-        match number with
-            | 3 -> String "Fizz"
-            | 5 -> String "Buzz"
-            | _ -> Number number
+        if number % 3 = 0 && number % 5 = 0 then FizzBuzz
+        elif number % 3 = 0 then Fizz
+        elif number % 5 = 0 then Buzz
+        else Number number
+
+
+
+
